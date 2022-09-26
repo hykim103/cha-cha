@@ -23,11 +23,11 @@ browser.visit 'https://www.pineapple.uk.com/pages/timetable'
 
 puts 'Load the website...'
 loop do
-  sleep(2)
+  sleep(30)
   break if driver.execute_script('return document.readyState') == 'complete'
 end
 
-puts 'Find sessions...'
+puts 'Scrape sessions...'
 doc = Nokogiri::HTML(driver.page_source)
 sessions = doc.css('div.bw-widget__sessions > div.bw-widget__day > div.bw-session')
 puts sessions.count
@@ -42,8 +42,8 @@ if sessions.count.positive?
       genre: session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__group1 > div.bw-session__name').children[2].text.match?(/^(.+)\(/) ? session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__group1 > div.bw-session__name').children[2].text.match(/^(.+)\(/)[1].strip : session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__group1 > div.bw-session__name').children[2].text.match(/^(.+) £/)[1].strip,
       level: session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__group1 > div.bw-session__name').text.match?(/\((.+)\)/) ? session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__group1 > div.bw-session__name').text.match(/\((.+)\)/)[1].strip : 'Beg',
       weekday: DateTime.strptime(session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__time > div.bw-session__column > span.hc_time > time.hc_starttime')[0].attributes['datetime'].value, '%Y-%m-%dT%H:%M').wday,
-      start_time: Time.strptime(session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__time > div.bw-session__column > span.hc_time > time.hc_starttime')[0].attributes['datetime'].value, '%Y-%m-%dT%H:%M'),
-      end_time: Time.strptime(session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__time > div.bw-session__column > span.hc_time > time.hc_endtime')[0].attributes['datetime'].value, '%Y-%m-%dT%H:%M'),
+      start_time: DateTime.strptime(session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__time > div.bw-session__column > span.hc_time > time.hc_starttime')[0].attributes['datetime'].value, '%Y-%m-%dT%H:%M'),
+      end_time: DateTime.strptime(session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__time > div.bw-session__column > span.hc_time > time.hc_endtime')[0].attributes['datetime'].value, '%Y-%m-%dT%H:%M'),
       instructor: session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__group2 > div.bw-session__staff').text.strip,
       price: session.css('div.bw-session__basics > div.bw-session__info > div.bw-session__group1 > div.bw-session__name').text.match(/\d+/)[0].to_i,
       url: 'https://www.pineapple.uk.com/pages/timetable',
