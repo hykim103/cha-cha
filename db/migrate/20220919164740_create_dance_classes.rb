@@ -1,7 +1,7 @@
 class CreateDanceClasses < ActiveRecord::Migration[7.0]
   def change
     create_table :dance_classes do |t|
-      t.string :genre
+      t.string :genre_name
       t.string :level
       t.integer :weekday
       t.time :start_time

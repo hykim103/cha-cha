@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_143950) do
   enable_extension "plpgsql"
 
   create_table "dance_classes", force: :cascade do |t|
-    t.string "genre"
+    t.string "genre_name"
     t.string "level"
     t.integer "weekday"
     t.time "start_time"
