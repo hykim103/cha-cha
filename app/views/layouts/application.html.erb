@@ -17,8 +17,9 @@
   <body class=<%= current_page?(root_path) ? "home-bg" : "" %>>
     <div class=<%= current_page?(root_path) ? "" : "border-b" %>>
       <nav class="flex justify-start items-center">
-          <span id="logo" class="my-4">ChaCha</span>
-          <i class="fa-sharp fa-solid fa-music-note"></i>
+        <%= link_to root_path do %>
+          <p id="logo" class="my-4">ChaCha</p>
+        <% end %>
       </nav>
     </div>
     <div class="main-container">
