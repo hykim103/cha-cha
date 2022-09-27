@@ -16,10 +16,37 @@
 
   <body class=<%= current_page?(root_path) ? "home-bg" : "" %>>
     <div class=<%= current_page?(root_path) ? "" : "border-b" %>>
-      <nav class="flex justify-start items-center">
-        <%= link_to root_path do %>
-          <p id="logo" class="my-4">ChaCha</p>
-        <% end %>
+      <nav class="flex items-center">
+        <div class="w-1/5 flex justify-start">
+          <%= link_to root_path do %>
+            <p id="logo" class="my-4">ChaCha</p>
+          <% end %>
+        </div>
+        <div class=<%= current_page?(root_path) ? "hidden" : "w-4/5" %>>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <%= form_with url: dance_classes_path, method: :get, class: "flex" do %>
+                <div class="flex">
+                  <div class="search-bar">
+                    <%= text_field_tag :query,
+                      params[:query],
+                      type: "text",
+                      class: "px-3 py-2 main search-bar border",
+                      placeholder: "Genres, Instructors, Etc."
+                    %>
+                  </div>
+                  <div class="search btn px-3 py-2 flex justify-center items-center">
+                    <%= submit_tag "Search" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="w-1/4 flex justify-end">
+              <button class="btn border py-2 px-5 rounded mr-3">Log In</button>
+              <button class="btn border py-2 px-5 rounded">Feedback</button>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
     <div class="main-container">
