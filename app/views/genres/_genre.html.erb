@@ -1,0 +1,10 @@
+<div class="w-48 h-1/4 flex justify-cetner items-center mb-3">
+  <%= link_to genre_path(genre) do %>
+    <div class="flex justify-center">
+      <%= image_tag "#{genre.name.gsub("/", ":")}.png", class: "w-1/2" %>
+    </div>
+    <div class="flex justify-center">
+      <p class="text genre"><%= genre.name %></p>
+    </div>
+  <% end %>
+</div>

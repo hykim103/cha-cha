@@ -5,6 +5,8 @@
 @import './banner.css';
 @import './button.css';
 @import './form.css';
+@import './card.css';
+@import './image.css';
 
 /* Tailwind */
 
@@ -13,8 +15,6 @@
  @tailwind utilities;
 
 /* Import External Sources */
-
-@import 'font-awesome';
 
 /* Global CSS */
 

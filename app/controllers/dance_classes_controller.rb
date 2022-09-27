@@ -3,7 +3,11 @@ class DanceClassesController < ApplicationController
   end
 
   def index
-    @dance_classes = DanceClass.all
+    if params[:query].present?
+      @dance_classes = DanceClass.where("city ILIKE ?", "%#{params[:query]}%")
+    else
+      @dance_classes = DanceClass.all
+    end
   end
 
   def show

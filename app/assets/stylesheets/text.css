@@ -17,6 +17,21 @@ font-family: 'Raleway', sans-serif; */
   font-weight: 800;
 }
 
+.secondary {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.third {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 #find {
   color: #16dbc1;
 }
@@ -32,4 +47,9 @@ font-family: 'Raleway', sans-serif; */
 .intro {
   color: #2f292b;
   font-size: 24px;
+}
+
+.genre {
+  font-size: 14px;
+  font-weight: 600;
 }

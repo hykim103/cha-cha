@@ -1,4 +1,11 @@
+.landing {
+  width: 420px;
+}
+
 .search-bar {
   border-radius: 5px 0 0 5px;
-  width: 420px;
+}
+
+.main {
+  width: 40vw;
 }

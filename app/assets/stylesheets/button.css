@@ -1,5 +1,8 @@
-.search-btn {
-  background-color: #5a66ef;
+.search {
   border-radius: 0 5px 5px 0;
+}
+
+.btn {
+  background-color: #5a66ef;
   color: white;
 }

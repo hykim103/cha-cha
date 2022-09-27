@@ -1,2 +1,35 @@
-<h1>DanceClasses#index</h1>
-<p>Find me in app/views/dance_classes/index.html.erb</p>
+<div class="flex border h-screen">
+  <div class="bg-red-300 w-1/5 h-100vh">
+    <div>
+      <p class="header">Location Now</p>
+    </div>
+    <div>
+      <p class="header">Time Range</p>
+    </div>
+    <div>
+      <p class="header">Day</p>
+    </div>
+    <div>
+      <p class="header">Genre</p>
+    </div>
+  </div>
+  <div class="flex flex-col w-4/5">
+    <div class="bg-green-300 w-full h-1/3 px-5">
+      <% genres = Genre.all %>
+      <div class="flex justify-between flex-wrap mt-5">
+        <% genres.each do |genre| %>
+          <%= render "genres/genre", genre: genre %>
+        <% end %>
+      </div>
+    </div>
+    <div class="bg-blue-300 w-full h-2/3 px-5 pt-10">
+      <p class="third header">Studios in <%= params[:city].capitalize %></p>
+      <div class="mt-5 flex">
+        <% studios = Studio.where("city ILIKE ?", "%#{params[:city]}%") %>
+        <% studios.each do |studio| %>
+          <%= render "studios/studio", studio: studio %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

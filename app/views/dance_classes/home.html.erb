@@ -13,14 +13,14 @@
           <%= form_with url: dance_classes_path, method: :get, class: "flex" do %>
             <div class="flex mt-5">
               <div class="search-bar">
-                <%= text_field_tag :query,
-                  params[:query],
+                <%= text_field_tag :city,
+                  params[:city],
                   type: "text",
-                  class: "px-3 py-3 search-bar",
+                  class: "px-3 py-3 landing search-bar",
                   placeholder: "e.g. London"
                 %>
               </div>
-              <div class="search-btn px-3 py-2 flex justify-center items-center">
+              <div class="search btn px-3 py-2 flex justify-center items-center">
                 <%= submit_tag "Search" %>
               </div>
             </div>

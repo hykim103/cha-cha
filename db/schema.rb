@@ -10,17 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_26_110432) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_27_143950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dance_classes", force: :cascade do |t|
-    t.string "country"
-    t.string "city"
-    t.string "studio"
-    t.string "address"
-    t.string "genre"
+    t.string "genre_name"
     t.string "level"
+    t.integer "weekday"
     t.time "start_time"
     t.time "end_time"
     t.string "instructor"
@@ -28,8 +25,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_110432) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_url"
-    t.integer "weekday"
+    t.bigint "studio_id", null: false
+    t.bigint "genre_id", null: false
+    t.index ["genre_id"], name: "index_dance_classes_on_genre_id"
+    t.index ["studio_id"], name: "index_dance_classes_on_studio_id"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "studios", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "city"
+    t.string "address"
+    t.string "url"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "dance_classes", "genres"
+  add_foreign_key "dance_classes", "studios"
 end

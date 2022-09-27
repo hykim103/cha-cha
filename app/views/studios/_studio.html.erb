@@ -1,0 +1,9 @@
+  <div class="studio card rounded flex flex-col items-center bg-white drop-shadow-md">
+    <%= link_to studio_path(studio) do %>
+      <%= image_tag studio.image_url, class: "invert rounded-t" %>
+      <div class="my-2">
+        <p class="title header text-center"><%= studio.name %></p>
+        <p class="text text-center"><%= studio.address %></p>
+      </div>
+    <% end %>
+  </div>
