@@ -1,0 +1,35 @@
+ /* font-family: 'Montserrat', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Montserrat Subrayada', sans-serif;
+font-family: 'Raleway', sans-serif; */
+
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.text {
+  font-family: 'Raleway', sans-serif;
+}
+
+.primary {
+  font-size: 60px;
+  font-weight: 800;
+}
+
+#find {
+  color: #16dbc1;
+}
+
+#book {
+  color: #f67fdd;
+}
+
+#dance {
+  color: #d79dff;
+}
+
+.intro {
+  color: #2f292b;
+  font-size: 24px;
+}

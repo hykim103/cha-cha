@@ -1,0 +1,12 @@
+#logo {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 25px;
+  color: #5a66ef;
+ }
+
+nav {
+  width: 90%;
+  margin: 0 auto;
+}

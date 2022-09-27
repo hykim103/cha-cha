@@ -72,3 +72,5 @@ group :test do
   gem 'capybara-screenshot'
   gem 'poltergeist'
 end
+
+gem "font-awesome-rails"

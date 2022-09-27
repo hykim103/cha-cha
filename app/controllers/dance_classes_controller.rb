@@ -1,4 +1,7 @@
 class DanceClassesController < ApplicationController
+  def home
+  end
+
   def index
     @dance_classes = DanceClass.all
   end

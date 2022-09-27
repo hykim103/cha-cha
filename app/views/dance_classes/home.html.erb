@@ -1,0 +1,37 @@
+<div class="banner-container mt-10 flex">
+  <div class="flex">
+    <div>
+      <div>
+        <div class="flex">
+          <span id="find" class="primary header mr-5">Find.</span>
+          <span id="book" class="primary header mr-5">Book.</span>
+          <span id="dance" class="primary header">Dance!</span>
+        </div>
+        <p class="intro text">Find dance classes fitting into your schedule<br>without travelling pages to pages!</p>
+        <div>
+          <p class="text mt-12">Enter a city name to see dance studios & classes</p>
+          <%= form_with url: dance_classes_path, method: :get, class: "flex" do %>
+            <div class="flex mt-5">
+              <div class="search-bar">
+                <%= text_field_tag :query,
+                  params[:query],
+                  type: "text",
+                  class: "px-3 py-3 search-bar",
+                  placeholder: "e.g. London"
+                %>
+              </div>
+              <div class="search-btn px-3 py-2 flex justify-center items-center">
+                <%= submit_tag "Search" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div>
+      <%= image_tag "dancing_figure.png" %>
+    </div>
+  </div>
+  <div>
+  </div>
+</div>
