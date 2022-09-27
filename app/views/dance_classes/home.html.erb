@@ -1,5 +1,5 @@
-<div class="banner-container mt-10 flex">
-  <div class="flex">
+<div class="mt-10 flex flex-col">
+  <div class="banner-container flex">
     <div>
       <div>
         <div class="flex">
@@ -32,6 +32,18 @@
       <%= image_tag "dancing_figure.png" %>
     </div>
   </div>
-  <div>
+  <div class="flex justify-between px-16 mt-16">
+    <div class="flex flex-col items-center w-1/3">
+      <%= image_tag "ballet_shoes.png", class: "w-36" %>
+      <p class="text text-center mt-5 w-2/3">Enter a city name and look what dance classes in the city</p>
+    </div>
+    <div class="flex flex-col items-center w-1/3">
+      <%= image_tag "hiphop_shoes.png", class: "w-36" %>
+      <p class="text text-center mt-5 w-2/3">Filter the classes by weekday, time, genre, or your favourite dancers</p>
+    </div>
+    <div class="flex flex-col items-center w-1/3">
+      <%= image_tag "tango_shoes.png", class: "w-36" %>
+      <p class="text text-center mt-5 w-2/3">Redirect to a dance studio website to book a class and you're good to go and dance!</p>
+    </div>
   </div>
 </div>
